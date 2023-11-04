@@ -16,9 +16,21 @@ const Registration = () => {
                         <h1 className='text-center font-bold text-xl md:text-3xl'>Please Register!</h1>
                         <div>
                             <div className="mb-2 block">
+                                <Label htmlFor="name" value="Your Name" />
+                            </div>
+                            <TextInput id="name" type="text" name='name' placeholder="Your Name" required />
+                        </div>
+                        <div>
+                            <div className="mb-2 block">
                                 <Label htmlFor="email1" value="Your email" />
                             </div>
                             <TextInput id="email1" type="email" name='email' placeholder="Your Email" required />
+                        </div>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="photo" value="Your Photo URL" />
+                            </div>
+                            <TextInput id="photo" type="text" name='photo' placeholder="Your Photo URL" required />
                         </div>
                         <div>
                             <div className="mb-2 block">
