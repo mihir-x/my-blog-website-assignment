@@ -12,7 +12,19 @@ const Login = () => {
 
     const handleLogin = e => {
         e.preventDefault()
+        const form = e.target
+        const email = form.email.value
+        const password = form.password.value
 
+        logIn(email,password)
+        .then(result =>{
+            console.log(result)
+            swal('Congratulations!', 'Your are logged in successfully', 'success')
+            navigate('/')
+        })
+        .catch(err => {
+            swal('Ooops!', err.message, 'error')
+        })
     }
 
     const handleGoogleLogin = () => {
