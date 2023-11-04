@@ -1,11 +1,62 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import swal from 'sweetalert';
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../../Firebase/firebase.config';
 
 const Registration = () => {
 
-    const handleRegistration = e =>{
+    const { createUser, loginWithGoogle } = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleRegistration = e => {
         e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const photo = form.photo.value
+        const password = form.password.value
+
+        if (!/^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*?-]).{6,}$/.test(password)) {
+            swal('Invalid Password!', 'Password must have a digit an special character an uppercase and at least 6 character long', 'error')
+            return
+        }
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result)
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: photo,
+                })
+                    .then(() => {
+                        window.location.reload(true)
+                    })
+                    .catch(err => {
+                        swal('Ooops!', err.message, 'error')
+                    })
+                swal('Congratulations!', 'Your account has been created successfully', 'success')
+                navigate('/')
+            })
+            .catch(err => {
+                swal('Ooops!', err.message, 'error')
+            })
+
+    }
+
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                console.log(result)
+                swal('Congratulations!', 'Your account has been created successfully', 'success')
+                navigate('/')
+            })
+            .catch(err => {
+                swal('Ooops!', err.message, 'error')
+            })
     }
 
     return (
@@ -45,7 +96,7 @@ const Registration = () => {
                         <Button type="submit">Register</Button>
                         <div className='text-center'>
                             <p className='font-semibold'>Login With Social Links</p>
-                            <button><FcGoogle className='h-8 w-8'></FcGoogle></button>
+                            <button onClick={handleGoogleLogin}><FcGoogle className='h-8 w-8'></FcGoogle></button>
                         </div>
                     </form>
                 </div>

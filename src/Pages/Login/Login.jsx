@@ -1,13 +1,30 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import swal from 'sweetalert';
 
 const Login = () => {
 
-    const handleLogin = e =>{
+    const { logIn, loginWithGoogle } = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleLogin = e => {
         e.preventDefault()
-        console.log(e.target.email.value)
-        console.log(e.target.password.value)
+
+    }
+
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                console.log(result)
+                swal('Congratulations!', 'Your account has been created successfully', 'success')
+                navigate('/')
+            })
+            .catch(err => {
+                swal('Ooops!', err.message, 'error')
+            })
     }
 
     return (
@@ -35,7 +52,7 @@ const Login = () => {
                         <Button type="submit">Login</Button>
                         <div className='text-center'>
                             <p className='font-semibold'>Login With Social Links</p>
-                            <button><FcGoogle className='h-8 w-8'></FcGoogle></button>
+                            <button onClick={handleGoogleLogin}><FcGoogle className='h-8 w-8'></FcGoogle></button>
                         </div>
                     </form>
                 </div>
