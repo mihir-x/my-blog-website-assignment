@@ -1,6 +1,16 @@
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import { NavLink } from 'react-router-dom';
 
 const BlogNavBar = () => {
+
+    const navLinks = <>
+            <NavLink to='/' className={({isActive}) => isActive? 'font-bold underline text-green-500':''}>Home</NavLink>
+            <NavLink to='/addblog' className={({isActive}) => isActive? 'font-bold underline text-green-500':''}>Add Blog</NavLink>
+            <NavLink to='/allblogs' className={({isActive}) => isActive? 'font-bold underline text-green-500':''}>All Blogs</NavLink>
+            <NavLink to='/featuredblogs' className={({isActive}) => isActive? 'font-bold underline text-green-500':''}>Featured Blogs</NavLink>
+            <NavLink to='/wishlist' className={({isActive}) => isActive? 'font-bold underline text-green-500':''}>Wishlist</NavLink>
+    </>
+
     return (
         <div className='shadow-xl'>
             <Navbar fluid rounded>
@@ -29,13 +39,7 @@ const BlogNavBar = () => {
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link href="#" active>
-                        Home
-                    </Navbar.Link>
-                    <Navbar.Link href="#">About</Navbar.Link>
-                    <Navbar.Link href="#">Services</Navbar.Link>
-                    <Navbar.Link href="#">Pricing</Navbar.Link>
-                    <Navbar.Link href="#">Contact</Navbar.Link>
+                    {navLinks}
                 </Navbar.Collapse>
             </Navbar>
         </div>
