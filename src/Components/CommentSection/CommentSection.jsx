@@ -2,9 +2,12 @@ import { Button, Label, Textarea } from "flowbite-react";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import PropTypes from 'prop-types';
+import axios from "axios";
+import swal from "sweetalert";
+import { useQueryClient } from "@tanstack/react-query";
 
 const CommentSection = ({blog}) => {
-
+    const queryClient = useQueryClient()
     const {user} = useContext(AuthContext)
     const name = user?.displayName 
     const photo = user?.photoURL
@@ -13,10 +16,19 @@ const CommentSection = ({blog}) => {
     const handleComment = e =>{
         e.preventDefault()
         const commentText = e.target.comment.value 
-        console.log(name, photo, blogId, commentText)
         const comment = {
             name, photo, blogId, commentText
         }
+        axios.post('http://localhost:5000/api/v1/comments', comment)
+        .then(res => {
+            console.log(res)
+            swal('Congratulations!', 'You have successfully commented on the blog', 'success')
+            e.target.reset()
+            queryClient.invalidateQueries([`${blog._id}`])
+        })
+        .catch(err => {
+            swal('Ooops!', err.message, 'error')
+        })
 
     }
 

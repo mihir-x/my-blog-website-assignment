@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Button } from "flowbite-react";
 import CommentSection from "../../Components/CommentSection/CommentSection";
+import AllComments from "../../Components/AllComments/AllComments";
 
 
 const BlogDetails = () => {
@@ -49,8 +50,16 @@ const BlogDetails = () => {
                     (user?.email === owner) ? <Button onClick={() => handleUpdate(_id)} color="purple">Update</Button> : ''
                 }
             </div>
+            <div className="mt-5 md:mt-10 pb-5 md:pb-10 border-b-4">
+                {
+                    (user?.email === blog?.owner) ? <h1 className="text-center text-lg md:text-2xl font-semibold">You Can not comment on your own blog</h1> : <CommentSection blog={blog}></CommentSection>
+                }
+            </div>
             <div className="mt-5 md:mt-10">
-                <CommentSection blog={blog}></CommentSection>
+                <h1 className="text-lg md:text-2xl font-bold">All Comments</h1>
+                <div>
+                    <AllComments blog={blog}></AllComments>
+                </div>
             </div>
         </div>
     );
