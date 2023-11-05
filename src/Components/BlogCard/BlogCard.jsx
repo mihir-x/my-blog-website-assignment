@@ -1,9 +1,19 @@
 import { Button, Card } from 'flowbite-react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 const BlogCard = ({ blog }) => {
 
-    const { title, category, photo, shortDescription} = blog
+    const { _id, title, category, photo, shortDescription } = blog
+    const navigate = useNavigate()
+
+    const handleDetailsClick = (id) =>{
+        navigate(`/allblogs/${id}`, {state: id})
+    }
+
+    const handleWishlistClick = () => {
+
+    }
 
     return (
         <Card
@@ -24,10 +34,10 @@ const BlogCard = ({ blog }) => {
                     <p className='text-gray-700 dark:text-gray-400 font-bold'>Category: {category}</p>
                 </div>
                 <div className='flex justify-between'>
-                    <Button outline gradientDuoTone="purpleToBlue">
+                    <Button onClick={()=>handleDetailsClick(_id)} outline gradientDuoTone="purpleToBlue">
                         Details
                     </Button>
-                    <Button outline gradientDuoTone="cyanToBlue">
+                    <Button onClick={handleWishlistClick} outline gradientDuoTone="cyanToBlue">
                         Wishlist
                     </Button>
                 </div>

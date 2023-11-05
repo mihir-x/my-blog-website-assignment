@@ -17,9 +17,9 @@ const BlogNavBar = () => {
         <NavLink to='/wishlist' className={({ isActive }) => isActive ? 'font-bold underline text-green-500' : ''}>Wishlist</NavLink>
     </>
 
-    if (loading) {
-        return <p>loading</p>
-    }
+    // if (loading) {
+    //     return <p>loading</p>
+    // }
     const handleLogout = () => {
         logOut()
             .then(() => {
