@@ -24,7 +24,7 @@ const AllBlog = () => {
                 <div>
 
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-screen-lg mx-auto gap-5 mt-5 md:mt-10">
                     {
                         blogs.map(blog => <BlogCard key={blog._id} blog={blog}></BlogCard>)
                     }
