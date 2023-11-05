@@ -30,12 +30,12 @@ const BlogDetails = () => {
     }
 
     return (
-        <div className="max-w-screen-lg mx-auto mb-5 md:mb-9 lg:mb-16">
+        <div className="max-w-screen-lg mx-auto mb-5 md:mb-9 lg:mb-16 p-2">
             <div className="space-y-3">
                 <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mt-5 md:mt-10">{title}</h1>
                 <p className="text-center">{shortDescription}</p>
             </div>
-            <div className="flex flex-col md:flex-row gap-10 mt-5 md:mt-8 max-h-96">
+            <div className="flex flex-col-reverse md:flex-row gap-10 mt-5 md:mt-8 md:max-h-96">
                 <div className="flex-1">
                     <p>{longDescription}</p>
                 </div>
@@ -43,7 +43,7 @@ const BlogDetails = () => {
                     <img src={photo} alt="" className="h-full w-full" />
                 </div>
             </div>
-            <div className="border-b-4 pb-5 md:pb-8">
+            <div className="border-b-4 pb-5 md:pb-8 mt-5">
                 {
                     (user?.email === owner) ? <Button onClick={() => handleUpdate(_id)} color="purple">Update</Button> : ''
                 }

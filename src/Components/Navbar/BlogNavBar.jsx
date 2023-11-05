@@ -5,7 +5,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import swal from 'sweetalert';
 
 const BlogNavBar = () => {
-    const { user, loading, logOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     console.log(user)
     // console.log(user.photoURL)
 
