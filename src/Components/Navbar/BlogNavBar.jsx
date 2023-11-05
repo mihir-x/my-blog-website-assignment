@@ -6,7 +6,6 @@ import swal from 'sweetalert';
 
 const BlogNavBar = () => {
     const { user, logOut } = useContext(AuthContext)
-    console.log(user)
     // console.log(user.photoURL)
 
     const navLinks = <>

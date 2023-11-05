@@ -4,13 +4,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Button } from "flowbite-react";
+import CommentSection from "../../Components/CommentSection/CommentSection";
 
 
 const BlogDetails = () => {
 
     const location = useLocation()
     const id = location.state
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const { data: blog, isLoading } = useQuery({
@@ -25,8 +26,8 @@ const BlogDetails = () => {
     }
     const { _id, title, photo, shortDescription, longDescription, owner } = blog
 
-    const handleUpdate = id =>{
-        navigate(`/updateblog/${id}`, {state: id})
+    const handleUpdate = id => {
+        navigate(`/updateblog/${id}`, { state: id })
     }
 
     return (
@@ -47,6 +48,9 @@ const BlogDetails = () => {
                 {
                     (user?.email === owner) ? <Button onClick={() => handleUpdate(_id)} color="purple">Update</Button> : ''
                 }
+            </div>
+            <div className="mt-5 md:mt-10">
+                <CommentSection blog={blog}></CommentSection>
             </div>
         </div>
     );
