@@ -1,11 +1,12 @@
 import BlogFooter from "../../Components/Footer/BlogFooter";
+import RecentBlog from "../../Components/RecentBlog/RecentBlog";
 
 
 
 const Home = () => {
     return (
         <div>
-            this is home
+            <RecentBlog></RecentBlog>
             <BlogFooter></BlogFooter>
         </div>
     );

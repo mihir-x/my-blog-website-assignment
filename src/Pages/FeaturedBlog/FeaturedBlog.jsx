@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import 'ka-table/style.css';
 import { Table } from 'ka-table';
-import { DataType, EditingMode, SortingMode } from 'ka-table/enums';
+import { DataType, SortingMode } from 'ka-table/enums';
 
 const FeaturedBlog = () => {
 
@@ -18,7 +18,7 @@ const FeaturedBlog = () => {
         { key: 'column1', title: 'Serial No', dataType: DataType.String },
         { key: 'column2', title: 'Blog Title', dataType: DataType.String },
         { key: 'column3', title: 'Blog Owner', dataType: DataType.String },
-        { key: 'column4', title: 'Profile Picture', dataType: DataType.String, formatter: ({value}) => <img src={value} alt="" className='h-10 w-10 md:h-16 md:w-16 rounded-full' />, },
+        { key: 'column4', title: 'Profile Picture', dataType: DataType.Object, format: ({value}) => <img src={value} alt="" className='h-10 w-10 md:h-16 md:w-16 rounded-full' />, },
     ]
 
     const dataArray = featured?.map((feature, index) => ({
