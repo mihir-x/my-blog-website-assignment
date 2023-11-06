@@ -7,7 +7,9 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const AddBlog = () => {
 
     const {user} = useContext(AuthContext)
-    const owner = user.email
+    const owner = user?.email
+    const ownerName = user?.displayName
+    const ownerPhoto = user?.photoURL
 
     const handleAddBlog = e =>{
         e.preventDefault()
@@ -19,7 +21,7 @@ const AddBlog = () => {
         const longDescription = form.longDescription.value
         const postDate = Date.now()
 
-        const blog = {title, category, photo, shortDescription, longDescription, postDate, owner}
+        const blog = {title, category, photo, shortDescription, longDescription, postDate, owner, ownerName, ownerPhoto}
         console.log(blog)
 
         fetch('http://localhost:5000/api/v1/addblog', {
