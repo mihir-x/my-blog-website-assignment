@@ -1,9 +1,14 @@
 import { Button, Card } from 'flowbite-react';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import axios from 'axios';
+import swal from 'sweetalert';
 
 const BlogCard = ({ blog }) => {
-
+    const {user} = useContext(AuthContext)
+    const owner = user?.email
     const { _id, title, category, photo, shortDescription } = blog
     const navigate = useNavigate()
 
@@ -12,7 +17,17 @@ const BlogCard = ({ blog }) => {
     }
 
     const handleWishlistClick = () => {
-
+        const wishList = {
+            owner, title, category, photo, shortDescription, blogId:_id,
+        }
+        axios.post('http://localhost:5000/api/v1/wishlists', wishList)
+        .then(res => {
+            console.log(res)
+            swal('Congratulations!', 'You have added this blog to your wishlist', 'success')
+        })
+        .catch(err => {
+            swal('Ooops!', err.message, 'error')
+        })
     }
 
     return (
