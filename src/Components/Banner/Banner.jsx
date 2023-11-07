@@ -3,8 +3,8 @@ import { motion } from "framer-motion"
 const Banner = () => {
 
     const textAnimation = {
-        hidden: { x: -100, opacity: 0 },
-        visible: { x: 0, opacity: 1, transition: { duration: 2 } },
+        hidden: { y: -100, opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: 2 } },
     }
 
     return (
