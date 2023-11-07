@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import axios from 'axios';
 import swal from 'sweetalert';
+import { PhotoView } from 'react-photo-view';
 
 const BlogCard = ({ blog }) => {
     const {user} = useContext(AuthContext)
@@ -32,13 +33,13 @@ const BlogCard = ({ blog }) => {
 
     return (
         <Card
-            className="h-[500px]"
+            className="h-[540px]"
         // imgAlt="Meaningful alt text for an image that is not purely decorative"
         // imgSrc={photo}
         // renderImage={() => <img src={photo} alt="" className='h-[200px]' />}
         >
             <div className='flex flex-col justify-between gap-5 h-full'>
-                <img src={photo} alt="" className='h-[200px]' />
+                <PhotoView src={photo}><img src={photo} alt="" className='h-[200px]' /></PhotoView>
                 <div className='space-y-2'>
                     <h5 className="text-lg md:text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {title}

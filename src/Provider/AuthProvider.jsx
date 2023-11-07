@@ -53,7 +53,7 @@ const AuthProvider = ({children}) => {
         return () =>{
             return subscribe()
         }
-    },[])
+    },[user?.email])
 
     const authInfo = {
         user,

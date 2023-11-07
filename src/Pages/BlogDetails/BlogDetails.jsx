@@ -6,6 +6,8 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Button } from "flowbite-react";
 import CommentSection from "../../Components/CommentSection/CommentSection";
 import AllComments from "../../Components/AllComments/AllComments";
+import { PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 
 const BlogDetails = () => {
@@ -32,6 +34,8 @@ const BlogDetails = () => {
     }
 
     return (
+        // <PhotoProvider>
+
         <div className="max-w-screen-lg mx-auto mb-5 md:mb-9 lg:mb-16 p-2">
             <div className="space-y-3">
                 <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mt-5 md:mt-10">{title}</h1>
@@ -42,7 +46,10 @@ const BlogDetails = () => {
                     <p>{longDescription}</p>
                 </div>
                 <div className="flex-1">
+                    <PhotoView src={photo}>
+
                     <img src={photo} alt="" className="w-full md:h-96 object-cover" />
+                    </PhotoView>
                 </div>
             </div>
             <div className="border-b-4 pb-5 md:pb-8 mt-5">
@@ -62,6 +69,7 @@ const BlogDetails = () => {
                 </div>
             </div>
         </div>
+        // </PhotoProvider>
     );
 };
 

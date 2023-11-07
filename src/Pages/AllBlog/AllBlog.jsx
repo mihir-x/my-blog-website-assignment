@@ -19,9 +19,9 @@ const AllBlog = () => {
     })
 
     const [filtered, setFiltered] = useState(blogs)
-    useEffect(()=>{
+    useEffect(() => {
         setFiltered(blogs)
-    },[blogs])
+    }, [blogs])
     console.log('filtered', filtered)
 
     if (isLoading) {
@@ -38,15 +38,14 @@ const AllBlog = () => {
     const handleSelect = (e) => {
         e.preventDefault()
         const filter = e.target.category.value
-        if(filter === 'All'){
+        if (filter === 'All') {
             setFiltered(blogs)
         }
-        else{
+        else {
             const filteredCategory = blogs?.filter(blog => blog.category === filter)
             setFiltered(filteredCategory)
         }
     }
-
     return (
         <div className="max-w-screen-lg mx-auto">
             <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center mt-5 md:mt-10">Check Out Our Blogs</h1>
