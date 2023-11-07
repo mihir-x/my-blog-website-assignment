@@ -18,7 +18,7 @@ const BlogDetails = () => {
     const { data: blog, isLoading } = useQuery({
         queryKey: ['blogDetails'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/api/v1/blogs/${id}`)
+            const res = await fetch(`http://localhost:5000/api/v1/blogs/${id}`, {credentials: 'include'})
             return res.json()
         }
     })

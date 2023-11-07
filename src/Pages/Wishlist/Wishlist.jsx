@@ -2,18 +2,22 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import WishCard from "../../Components/WishCard/WishCard";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 
 const Wishlist = () => {
     const {user} = useContext(AuthContext)
-    const {data: wishlists} = useQuery({
-        queryKey: ['wishlists'],
+    const {data: wishlists, isLoading} = useQuery({
+        queryKey: [`${user?.email}`],
         queryFn: async () =>{
-            const res = await fetch(`http://localhost:5000/api/v1/wishlists?owner=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/api/v1/wishlists?owner=${user?.email}`, {credentials:'include'})
             return res.json()
         }
     })
-    console.log(wishlists)
+  
+    if(isLoading){
+        return <LoadingPage></LoadingPage>
+    }
 
     return (
         <div className="max-w-screen-lg mx-auto">

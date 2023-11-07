@@ -25,6 +25,7 @@ const AddBlog = () => {
         console.log(blog)
 
         fetch('http://localhost:5000/api/v1/addblog', {
+            credentials: 'include',
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

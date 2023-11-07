@@ -18,6 +18,7 @@ const AllBlog = () => {
     if (isLoading) {
         return <LoadingPage></LoadingPage>
     }
+    console.log(blogs);
 
     const handleSearch = (e) => {
         e.preventDefault()
