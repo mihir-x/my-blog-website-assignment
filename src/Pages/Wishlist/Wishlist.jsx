@@ -8,7 +8,7 @@ import LoadingPage from "../LoadingPage/LoadingPage";
 const Wishlist = () => {
     const {user} = useContext(AuthContext)
     const {data: wishlists, isLoading} = useQuery({
-        queryKey: [`${user?.email}`],
+        queryKey: ['wishlists'],
         queryFn: async () =>{
             const res = await fetch(`http://localhost:5000/api/v1/wishlists?owner=${user?.email}`, {credentials:'include'})
             return res.json()

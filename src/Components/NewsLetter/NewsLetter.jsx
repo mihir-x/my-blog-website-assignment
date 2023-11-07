@@ -11,7 +11,7 @@ const NewsLetter = () => {
 
     return (
         <div className="max-w-screen-lg mx-auto my-14 md:my-20 relative">
-            <img src="https://i.ibb.co/35xcz2g/2514366.png" alt="" className="h-14 md:h-20 absolute -top-6 md:-top-10 left-[45%]" />
+            <img src="https://i.ibb.co/35xcz2g/2514366.png" alt="" className="h-14 md:h-20 absolute -to-6 md:-top-10 left-[45%]" />
 
             <div className="h-80 bg-gray-700 rounded-xl flex flex-col items-center justify-center space-y-2 md:space-y-4">
                 <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-blue-600">Newsletter</h1>
