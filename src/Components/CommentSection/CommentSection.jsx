@@ -19,7 +19,7 @@ const CommentSection = ({blog}) => {
         const comment = {
             name, photo, blogId, commentText
         }
-        axios.post('http://localhost:5000/api/v1/comments', comment)
+        axios.post('https://blog-website-server-omega.vercel.app/api/v1/comments', comment)
         .then(res => {
             console.log(res)
             swal('Congratulations!', 'You have successfully commented on the blog', 'success')

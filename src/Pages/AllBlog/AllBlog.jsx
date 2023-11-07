@@ -11,7 +11,7 @@ const AllBlog = () => {
     const { data: blogs, isLoading } = useQuery({
         queryKey: ['blogs'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/api/v1/blogs')
+            const res = await fetch('https://blog-website-server-omega.vercel.app/api/v1/blogs')
             return res.json()
         }
     })

@@ -10,7 +10,7 @@ const Wishlist = () => {
     const {data: wishlists, isLoading} = useQuery({
         queryKey: ['wishlists'],
         queryFn: async () =>{
-            const res = await fetch(`http://localhost:5000/api/v1/wishlists?owner=${user?.email}`, {credentials:'include'})
+            const res = await fetch(`https://blog-website-server-omega.vercel.app/api/v1/wishlists?owner=${user?.email}`, {credentials:'include'})
             return res.json()
         }
     })

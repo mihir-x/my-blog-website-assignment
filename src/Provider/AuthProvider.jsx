@@ -38,13 +38,13 @@ const AuthProvider = ({children}) => {
             setUser(currentUser)
             setLoading(false)
             if(currentUser){
-                axios.post('http://localhost:5000/api/v1/jwt', loggedUser, {withCredentials: true})
+                axios.post('https://blog-website-server-omega.vercel.app/api/v1/jwt', loggedUser, {withCredentials: true})
                 .then(res => {
                     console.log('token res', res.data)
                 })
             }
             else{
-                axios.post('http://localhost:5000/api/v1/jwt/logout', loggedUser, {withCredentials: true} )
+                axios.post('https://blog-website-server-omega.vercel.app/api/v1/jwt/logout', loggedUser, {withCredentials: true} )
                 .then(res =>{
                     console.log('clearing token from cookie, ', res.data);
                 })

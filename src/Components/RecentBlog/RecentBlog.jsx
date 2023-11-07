@@ -6,7 +6,7 @@ const RecentBlog = () => {
     const { data: recentBlogs } = useQuery({
         queryKey: ['recentBlog'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/api/v1/recent`)
+            const res = await fetch(`https://blog-website-server-omega.vercel.app/api/v1/recent`)
             return res.json()
         }
     })

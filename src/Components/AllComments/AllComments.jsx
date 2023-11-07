@@ -8,7 +8,7 @@ const AllComments = ({blog}) => {
     const {data: comments} = useQuery({
         queryKey: [`${blog._id}`],
         queryFn: async () =>{
-            const res = await fetch(`http://localhost:5000/api/v1/comments?blogId=${blog._id}`)
+            const res = await fetch(`https://blog-website-server-omega.vercel.app/api/v1/comments?blogId=${blog._id}`)
             return res.json()
         }
         

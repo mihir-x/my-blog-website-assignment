@@ -9,7 +9,7 @@ const FeaturedBlog = () => {
     const { data: featured, isLoading } = useQuery({
         queryKey: ['featured'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/api/v1/blogs/sorted')
+            const res = await fetch('https://blog-website-server-omega.vercel.app/api/v1/blogs/sorted')
             return res.json()
         }
     })

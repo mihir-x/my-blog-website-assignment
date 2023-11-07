@@ -20,7 +20,7 @@ const BlogCard = ({ blog }) => {
         const wishList = {
             owner, title, category, photo, shortDescription, blogId:_id,
         }
-        axios.post('http://localhost:5000/api/v1/wishlists', wishList)
+        axios.post('https://blog-website-server-omega.vercel.app/api/v1/wishlists', wishList)
         .then(res => {
             console.log(res)
             swal('Congratulations!', 'You have added this blog to your wishlist', 'success')

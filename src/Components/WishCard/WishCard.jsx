@@ -15,7 +15,7 @@ const WishCard = ({wish}) => {
         navigate(`/allblogs/${id}`, {state: id})
     }
     const handleRemoveClick = () =>{
-        axios.delete(`http://localhost:5000/api/v1/wishlists/${_id}`)
+        axios.delete(`https://blog-website-server-omega.vercel.app/api/v1/wishlists/${_id}`)
         .then(res => {
             console.log(res)
             swal('Thank You!', 'The blog has been removed from your wishlist', 'success')

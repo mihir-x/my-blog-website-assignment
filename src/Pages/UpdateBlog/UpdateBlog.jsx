@@ -19,7 +19,7 @@ const UpdateBlog = () => {
     const { data: blog, isLoading } = useQuery({
         queryKey: ['updateBlog'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/api/v1/blogs/${id}`, {credentials: 'include'})
+            const res = await fetch(`https://blog-website-server-omega.vercel.app/api/v1/blogs/${id}`, {credentials: 'include'})
             return res.json()
         }
     })
@@ -40,7 +40,7 @@ const UpdateBlog = () => {
         const postDate = Date.now()
 
         const updatedBlog = {title, category, photo, shortDescription, longDescription, postDate, owner}
-        axios.put(`http://localhost:5000/api/v1/blogs/${_id}`, updatedBlog)
+        axios.put(`https://blog-website-server-omega.vercel.app/api/v1/blogs/${_id}`, updatedBlog)
         .then(result => {
             swal('Congratulations!', 'Blog has been updated', 'success')
             console.log(result)

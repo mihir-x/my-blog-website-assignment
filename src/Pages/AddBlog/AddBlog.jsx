@@ -24,7 +24,7 @@ const AddBlog = () => {
         const blog = {title, category, photo, shortDescription, longDescription, postDate, owner, ownerName, ownerPhoto}
         console.log(blog)
 
-        fetch('http://localhost:5000/api/v1/addblog', {
+        fetch('https://blog-website-server-omega.vercel.app/api/v1/addblog', {
             credentials: 'include',
             method: 'POST',
             headers: {
