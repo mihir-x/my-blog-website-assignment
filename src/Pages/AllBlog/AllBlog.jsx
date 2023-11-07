@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import BlogCard from "../../Components/BlogCard/BlogCard";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import { Select } from "flowbite-react";
+import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
 // import { useState } from "react";
 
 
@@ -15,35 +17,39 @@ const AllBlog = () => {
             return res.json()
         }
     })
+
+    const [filtered, setFiltered] = useState(blogs)
+    useEffect(()=>{
+        setFiltered(blogs)
+    },[blogs])
+    console.log('filtered', filtered)
+
     if (isLoading) {
         return <LoadingPage></LoadingPage>
     }
-    console.log(blogs);
+
 
     const handleSearch = (e) => {
         e.preventDefault()
         const searchTitle = e.target.search.value
-        const searchedBlog = blogs?.find(blog => blog.title === searchTitle)
-        // setSearchBlog(searchedBlog)
-        console.log(searchedBlog)
+        const searchedBlog = blogs?.filter(blog => blog.title === searchTitle)
+        setFiltered(searchedBlog)
     }
     const handleSelect = (e) => {
         e.preventDefault()
         const filter = e.target.category.value
-        let filteredCategory = []
         if(filter === 'All'){
-            filteredCategory = blogs
+            setFiltered(blogs)
         }
         else{
-            filteredCategory = blogs?.filter(blog => blog.category === filter)
+            const filteredCategory = blogs?.filter(blog => blog.category === filter)
+            setFiltered(filteredCategory)
         }
-        // setFilterBlog(filteredCategory)
-        console.log(filteredCategory)
     }
 
     return (
         <div className="max-w-screen-lg mx-auto">
-            <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center mt-5 md:mt-10">Check Out All Blogs</h1>
+            <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center mt-5 md:mt-10">Check Out Our Blogs</h1>
             <div className="mt-5 md:mt-10">
                 <div className="flex flex-col md:flex-row justify-end items-center gap-5 border-y-2 pb-2 md:py-6">
                     <div>
@@ -69,9 +75,12 @@ const AllBlog = () => {
                         </div>
                     </form>
                 </div>
+                <div>
+                    <Outlet></Outlet>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5 mt-5 md:mt-10">
                     {
-                        blogs?.map(blog => <BlogCard key={blog._id} blog={blog}></BlogCard>)
+                        filtered?.map(blog => <BlogCard key={blog._id} blog={blog}></BlogCard>)
                     }
                 </div>
             </div>
