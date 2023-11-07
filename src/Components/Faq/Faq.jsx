@@ -1,8 +1,14 @@
 import { Accordion } from 'flowbite-react';
+import { useInView } from 'react-intersection-observer';
 
 const Faq = () => {
+
+    const [ref, inView] = useInView({
+        threshold: 0
+    })
+
     return (
-        <div className='max-w-screen-lg mx-auto my-6 md:my-14'>
+        <div className={`max-w-screen-lg mx-auto my-6 md:my-14 transition-transform transform duration-1000 ${inView? 'scale-100': 'scale-75'}`} ref={ref}>
             <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center mb-4 md:mb-8">Frequently Asked Question</h1>
             <Accordion>
                 <Accordion.Panel>
