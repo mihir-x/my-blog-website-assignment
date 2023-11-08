@@ -29,7 +29,7 @@ const WishCard = ({wish}) => {
 
     return (
         <Card
-            className="h-[500px]"
+            className=""
         >
             <div className='flex flex-col justify-between gap-5 h-full'>
                 <PhotoView src={photo}><img src={photo} alt="" className='h-[200px]' /></PhotoView>

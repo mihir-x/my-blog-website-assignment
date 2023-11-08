@@ -51,7 +51,7 @@ const Registration = () => {
         loginWithGoogle()
             .then(result => {
                 console.log(result)
-                swal('Congratulations!', 'Your account has been created successfully', 'success')
+                swal('Congratulations!', 'You are logged in successfully', 'success')
                 navigate('/')
             })
             .catch(err => {

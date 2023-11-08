@@ -33,7 +33,7 @@ const BlogCard = ({ blog }) => {
 
     return (
         <Card
-            className="h-[540px]"
+            className=""
         // imgAlt="Meaningful alt text for an image that is not purely decorative"
         // imgSrc={photo}
         // renderImage={() => <img src={photo} alt="" className='h-[200px]' />}
