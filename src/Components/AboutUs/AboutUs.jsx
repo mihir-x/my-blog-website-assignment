@@ -27,7 +27,7 @@ const AboutUs = () => {
                     animate="visible"
                     variants={textAnimation}
                 >
-                    <p className="mt-5 md:mt-8">Welcome to our blog website, your trusted source for all things and ideas. We&apos;re a group of writers passionate about blogging, dedicated to delivering quality content that informs, educates, and entertains. Explore our articles and join our community as we share our knowledge and passion.</p>
+                    <p className="mt-5 md:mt-8">Welcome to Blog Hub, your trusted source for all things and ideas. We&apos;re a group of writers passionate about blogging, dedicated to delivering quality content that informs, educates, and entertains. Explore our articles, join our community and share your knowledge and passion.</p>
                 </motion.div>
 
             </div>

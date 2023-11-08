@@ -12,7 +12,7 @@ const BlogFooter = () => {
                             <Footer.LinkGroup col>
                                 <Footer.Link href="#">About</Footer.Link>
                                 <Footer.Link href="#">Careers</Footer.Link>
-                                <Footer.Link href="#">Brand Center</Footer.Link>
+                                <Footer.Link href="#">Action Center</Footer.Link>
                                 <Footer.Link href="#">Blog</Footer.Link>
                             </Footer.LinkGroup>
                         </div>
