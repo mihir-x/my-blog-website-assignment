@@ -17,7 +17,7 @@ const UpdateBlog = () => {
     const id = location.state
 
     const { data: blog, isLoading } = useQuery({
-        queryKey: ['updateBlog'],
+        queryKey: [`${id}`],
         queryFn: async () => {
             const res = await fetch(`https://blog-website-server-omega.vercel.app/api/v1/blogs/${id}`, {credentials: 'include'})
             return res.json()
