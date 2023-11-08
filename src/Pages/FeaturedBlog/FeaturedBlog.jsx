@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import 'ka-table/style.css';
-import { Column, Table } from 'ka-table';
-import { DataType, SortingMode } from 'ka-table/enums';
 import LoadingPage from "../LoadingPage/LoadingPage";
+import DataTable from 'react-data-table-component';
 
 const FeaturedBlog = () => {
 
@@ -14,39 +12,48 @@ const FeaturedBlog = () => {
         }
     })
     console.log(featured)
-    if(isLoading){
+    if (isLoading) {
         return <LoadingPage></LoadingPage>
     }
 
-    const columns = [
-        { key: 'column1', title: 'Serial No', },
-        { key: 'column2', title: 'Blog Title', },
-        { key: 'column3', title: 'Blog Owner', },
-        { key: 'column4', title: 'Profile Picture', cell: ({ column, row }) => <img src={row.dataArray.column4} alt="" className='h-10 w-10 md:h-16 md:w-16 rounded-full' /> },
-    ]
 
-    const dataArray = featured?.map((feature, index) => ({
-        column1: `${index + 1}`,
-        column2: feature.title,
-        column3: feature.ownerName,
-        column4: feature.ownerPhoto,
-        id: index,
-    }));
+    const columns = [
+        {
+            name: 'Serial No',
+            selector: row => row.serial,
+        },
+        {
+            name: 'Blog Title',
+            selector: row => row.title,
+        },
+        {
+            name: 'Blog Owner',
+            selector: row => row.owner,
+        },
+        {
+            name: 'Owner Profile Picture',
+            selector: row => row.photo,
+        },
+    ]
+    const data = featured?.map((feature, index) => ({
+        serial: index + 1,
+        title: feature.title,
+        owner: feature.ownerName,
+        photo: <img src={feature.ownerPhoto} alt="no image" className="h-14 w-14 rounded-full p-1" />
+
+    }))
 
 
     return (
         <div className="max-w-screen-lg mx-auto">
             <div>
                 <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center mt-5 md:mt-10">Our Featured Blogs</h1>
+                <p className="text-center my-2 md:my-4 md:text-lg">Here are our top ten featured blogs</p>
             </div>
-            <div className="mt-5 md:mt-10">
-                <Table
-                    columns={columns}
-                    data={dataArray}
+            <div className="my-5 md:mt-10 md:mb-20 ">
+                <DataTable columns={columns} data={data} className="outline outline-blue-400 p-2 md:p-8">
 
-                    rowKeyField={'id'}
-                    sortingMode={SortingMode.Single}
-                />
+                </DataTable>
             </div>
         </div>
     );
