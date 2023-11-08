@@ -22,8 +22,8 @@ const AllBlog = () => {
     useEffect(() => {
         setFiltered(blogs)
     }, [blogs])
-    console.log('filtered', filtered)
 
+    
     if (isLoading) {
         return <LoadingPage></LoadingPage>
     }

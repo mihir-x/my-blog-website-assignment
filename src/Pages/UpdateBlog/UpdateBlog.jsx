@@ -1,33 +1,49 @@
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import { Button, Label, Select, TextInput, Textarea } from 'flowbite-react';
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import swal from "sweetalert";
 
 
 const UpdateBlog = () => {
-
-    const {user} = useContext(AuthContext)
+    const {user, loading} = useContext(AuthContext)
     const owner = user.email
+    const [blog, setBlog] = useState([])
 
     const location = useLocation()
-    const id = location.state
-
-    const { data: blog, isLoading } = useQuery({
-        queryKey: [`${id}`],
-        queryFn: async () => {
-            const res = await fetch(`https://blog-website-server-omega.vercel.app/api/v1/blogs/${id}`, {credentials: 'include'})
-            return res.json()
-        }
-    })
-    if (isLoading) {
+    const updateId = location.state
+    console.log('id in body',updateId)
+    useEffect(()=>{
+        fetch(`https://blog-website-server-omega.vercel.app/api/v1/blogs/${updateId}`, {
+            credentials: 'include',
+            method: 'GET',
+        })
+        .then(res=>res.json())
+        .then(data =>{
+            console.log(data)
+            setBlog(data)
+        })
+    },[updateId])
+    if(loading){
         return <LoadingPage></LoadingPage>
     }
 
+    // const { data: blog, isLoading } = useQuery({
+    //     queryKey: ['updateBlog'],
+    //     queryFn: async () => {
+    //         console.log('id in query', updateId)
+    //         const res = await fetch(`https://blog-website-server-omega.vercel.app/api/v1/blogs/${updateId}`, {credentials: 'include'})
+    //         return res.json()
+    //     }
+    // })
+    // if (isLoading) {
+    //     return <LoadingPage></LoadingPage>
+    // }
     const { _id, title, category, photo, shortDescription, longDescription } = blog
+    console.log('blog data ',_id, category, title, shortDescription)
     
     const handleUpdateBlog = e =>{
         e.preventDefault()

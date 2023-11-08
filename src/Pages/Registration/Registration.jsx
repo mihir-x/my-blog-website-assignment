@@ -8,7 +8,6 @@ import { updateProfile } from 'firebase/auth';
 import { auth } from '../../Firebase/firebase.config';
 
 const Registration = () => {
-
     const { createUser, loginWithGoogle } = useContext(AuthContext)
     const navigate = useNavigate()
 

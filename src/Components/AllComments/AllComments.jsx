@@ -13,7 +13,7 @@ const AllComments = ({blog}) => {
         }
         
     })
-    console.log(comments)
+
 
     return (
         <div>
