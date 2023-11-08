@@ -50,8 +50,8 @@ const BlogNavBar = () => {
                                 <span className="block truncate text-sm font-medium">{user.email}</span>
                             </Dropdown.Header>
                             <Dropdown.Item>Dashboard</Dropdown.Item>
+                            <Dropdown.Item>My Blog</Dropdown.Item>
                             <Dropdown.Item>Settings</Dropdown.Item>
-                            <Dropdown.Item>Earnings</Dropdown.Item>
                             <Dropdown.Divider />
                             <Dropdown.Item><Button onClick={handleLogout} color="failure">Logout</Button></Dropdown.Item>
                         </Dropdown> : <div className='md:flex gap-5'>

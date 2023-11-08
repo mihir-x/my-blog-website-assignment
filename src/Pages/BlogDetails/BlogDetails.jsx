@@ -59,7 +59,7 @@ const BlogDetails = () => {
             </div>
             <div className="mt-5 md:mt-10 pb-5 md:pb-10 border-b-4">
                 {
-                    (user?.email === blog?.owner) ? <h1 className="text-center text-lg md:text-2xl font-semibold">You Can not comment on your own blog</h1> : <CommentSection blog={blog}></CommentSection>
+                    (user?.email === blog?.owner) ? <h1 className="text-center text-lg md:text-2xl font-semibold">You can not comment on your own blog</h1> : <CommentSection blog={blog}></CommentSection>
                 }
             </div>
             <div className="mt-5 md:mt-10">

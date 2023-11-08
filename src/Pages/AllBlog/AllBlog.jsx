@@ -47,7 +47,7 @@ const AllBlog = () => {
         }
     }
     return (
-        <div className="max-w-screen-lg mx-auto">
+        <div className="max-w-screen-lg mx-auto mb-5 md:mb-16">
             <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center mt-5 md:mt-10">Check Out Our Blogs</h1>
             <div className="mt-5 md:mt-10">
                 <div className="flex flex-col md:flex-row justify-end items-center gap-5 border-y-2 pb-2 md:py-6">
