@@ -1,4 +1,4 @@
-# Blog Website
+# Blog Hub
 # Live Link: https://gorgeous-kitten-b026ab.netlify.app
 
 This is a website for bloggers. Explore reade ideas of different people and share your own idea

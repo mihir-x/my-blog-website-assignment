@@ -40,7 +40,7 @@ const Login = () => {
     }
 
     return (
-        <div className='bg-gradient-to-b from-blue-500 to-green-500 md:h-screen'>
+        <div className=' md:h-screen'>
             <div className='flex flex-col md:flex-row max-w-screen-lg mx-auto items-center justify-center md:h-full'>
                 <div className='flex-1'>
                     <form onSubmit={handleLogin} className="flex max-w-md flex-col gap-4 mx-auto shadow-2xl p-4">

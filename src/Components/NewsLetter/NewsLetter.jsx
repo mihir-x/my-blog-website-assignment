@@ -5,15 +5,15 @@ const NewsLetter = () => {
 
     const handleSubscribe = e => {
         e.preventDefault()
-        swal('Thank You!', 'You have been successfully subscribed to our website', 'success')
+        swal('Thank You!', 'You have been successfully subscribed to our newsletter', 'success')
         e.target.reset()
     }
 
     return (
-        <div className="max-w-screen-lg mx-auto my-14 md:my-20 relative">
+        <div className="max-w-screen-lg mx-auto my-14 md:my-20 relative bg-[url('https://i.ibb.co/3pn1rxX/laptop-typing.jpg')] bg-cover rounded-lg">
             <img src="https://i.ibb.co/35xcz2g/2514366.png" alt="" className="h-14 md:h-20 absolute -to-6 md:-top-10 left-[45%]" />
 
-            <div className="h-80 bg-gray-700 rounded-xl flex flex-col items-center justify-center space-y-2 md:space-y-4">
+            <div className="h-80 bg-black bg-opacity-50 rounded-xl flex flex-col items-center justify-center space-y-2 md:space-y-4">
                 <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-blue-600">Newsletter</h1>
                 <p className="text-white md:text-xl">Stay up to date with our latest blogs</p>
                 <form onSubmit={handleSubscribe} className="flex">

@@ -48,7 +48,7 @@ const BlogDetails = () => {
                 <div className="flex-1">
                     <PhotoView src={photo}>
 
-                    <img src={photo} alt="" className="w-full md:h-96 object-cover" />
+                    <img src={photo} alt="" className="w-full md:h-96 object-cover rounded-lg" />
                     </PhotoView>
                 </div>
             </div>
