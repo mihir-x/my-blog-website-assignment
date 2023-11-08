@@ -82,12 +82,12 @@ const UpdateBlog = () => {
                             <Label htmlFor="countries" value="Category" />
                         </div>
                         <Select id="category" name='category' defaultValue={category} required>
-                            <option>Business</option>
-                            <option>Lifestyle</option>
-                            <option>Fitness</option>
-                            <option>Travel</option>
-                            <option>News</option>
-                            <option>Food</option>
+                            <option value='Business' selected={category === 'Business'}>Business</option>
+                            <option value='Lifestyle' selected={category === 'Lifestyle'}>Lifestyle</option>
+                            <option value='Fitness' selected={category === 'Fitness'}>Fitness</option>
+                            <option value='Travel' selected={category === 'Travel'}>Travel</option>
+                            <option value='News' selected={category === 'News'}>News</option>
+                            <option value='Food' selected={category === 'Food'}>Food</option>
                         </Select>
                     </div>
                 </div>
