@@ -11,7 +11,6 @@ const RecentBlog = () => {
         }
     })
 
-    console.log(recentBlogs)
 
     return (
         <div className="max-w-screen-lg mx-auto mt-5 md:mt-16">

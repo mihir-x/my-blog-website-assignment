@@ -31,7 +31,8 @@ const UpdateBlog = () => {
         return <LoadingPage></LoadingPage>
     }
 
-    // const { data: blog, isLoading } = useQuery({
+    //this damn thing is not working in real time. It showing previous data and requiring a hard reload to show current data. I have not much time left so had to use the useEffect. Sorry! 
+    // const { data: blog, isLoading } = useQuery({            
     //     queryKey: ['updateBlog'],
     //     queryFn: async () => {
     //         console.log('id in query', updateId)

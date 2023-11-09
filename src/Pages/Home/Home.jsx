@@ -4,6 +4,7 @@ import Faq from "../../Components/Faq/Faq";
 import BlogFooter from "../../Components/Footer/BlogFooter";
 import NewsLetter from "../../Components/NewsLetter/NewsLetter";
 import RecentBlog from "../../Components/RecentBlog/RecentBlog";
+import TopBlogger from "../../Components/TopBlogger/TopBlogger";
 
 
 
@@ -15,6 +16,7 @@ const Home = () => {
             <AboutUs></AboutUs>
             <RecentBlog></RecentBlog>
             <NewsLetter></NewsLetter>
+            <TopBlogger></TopBlogger>
             <Faq></Faq>
             <BlogFooter></BlogFooter>
         </div>
