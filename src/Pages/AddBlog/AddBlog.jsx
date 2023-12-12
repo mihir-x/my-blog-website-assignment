@@ -21,7 +21,7 @@ const AddBlog = () => {
         const longDescription = form.longDescription.value
         const postDate = Date.now()
 
-        const blog = {title, category, photo, shortDescription, longDescription, postDate, owner, ownerName, ownerPhoto}
+        const blog = {title, category, photo, shortDescription, longDescription, postDate, owner, ownerName, ownerPhoto, like:0, dislike:0}
         console.log(blog)
 
         fetch('https://blog-website-server-omega.vercel.app/api/v1/addblog', {
