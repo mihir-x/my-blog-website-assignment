@@ -30,21 +30,21 @@ const BlogDetails = () => {
     if (isLoading) {
         return <LoadingPage></LoadingPage>
     }
-    const { _id, title, photo, shortDescription, longDescription, owner } = blog
+    const { _id, title, photo, shortDescription, longDescription, owner,like, dislike } = blog
 
     const handleUpdate = id => {
         navigate(`/updateblog/${id}`, { state: id })
     }
 
     const handleLike = async(id) =>{
-        const res = await axios.put(`http://localhost:5000/api/v1/blogs/like/${id}`,{count:1})
+        const res = await axios.put(`https://blog-website-server-omega.vercel.app/api/v1/blogs/like/${id}`,{count:1})
         if(res.data.modifiedCount>0){
             swal("Liked!", "Glad you have liked it", "success")
             refetch()
         }
     }
     const handleDislike = async(id) =>{
-        const res = await axios.put(`http://localhost:5000/api/v1/blogs/dislike/${id}`,{count:1})
+        const res = await axios.put(`https://blog-website-server-omega.vercel.app/api/v1/blogs/dislike/${id}`,{count:1})
         if(res.data.modifiedCount>0){
             swal("Disliked!", "Sorry to disappoint you", "success")
             refetch()
@@ -54,7 +54,7 @@ const BlogDetails = () => {
     return (
         // <PhotoProvider>
 
-        <div className="max-w-screen-lg mx-auto mb-5 md:mb-9 lg:mb-16 p-2">
+        <div className={`max-w-screen-lg mx-auto mb-5 md:mb-9 lg:mb-16 p-2 md:p-5 ${like===dislike ?'bg-white':(like>dislike?'bg-blue-200':'bg-red-200')}`}>
             <div className="space-y-3">
                 <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mt-5 md:mt-10">{title}</h1>
                 <p className="text-center">{shortDescription}</p>
