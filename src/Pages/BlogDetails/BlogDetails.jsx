@@ -39,14 +39,14 @@ const BlogDetails = () => {
     const handleLike = async(id) =>{
         const res = await axios.put(`http://localhost:5000/api/v1/blogs/like/${id}`,{count:1})
         if(res.data.modifiedCount>0){
-            swal("Liked!", "You have liked this blog", "success")
+            swal("Liked!", "Glad you have liked it", "success")
             refetch()
         }
     }
     const handleDislike = async(id) =>{
         const res = await axios.put(`http://localhost:5000/api/v1/blogs/dislike/${id}`,{count:1})
         if(res.data.modifiedCount>0){
-            swal("Disliked!", "You have disliked this blog", "success")
+            swal("Disliked!", "Sorry to disappoint you", "success")
             refetch()
         }
     }
