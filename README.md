@@ -30,3 +30,9 @@ Welcome to Blog Hub– the ultimate platform for sharing your thoughts, experien
 - In the featured blog page you can see the top 10 blog
 - In the wishlist page you can see all the blog you have wishlisted for
 - You can remove blog from your wishlist by clicking the remove button
+
+# New features of the website:
+
+- In the blog details page user can like the blog by clicking like button
+- In the blog details page user can dislike the blog by clicking the dislike button
+- Background of the blog details page will change based on like and dislike count
